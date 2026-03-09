@@ -3,308 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="VisionOptica - Óptica premium en Guayaquil. Lentes, exámenes visuales, marcas exclusivas. Cuidamos tu visión.">
-    <meta name="keywords" content="óptica, lentes, examenes visuales, Guayaquil, oftalmología">
-    <meta name="author" content="VisionOptica">
-    <meta property="og:title" content="VisionOptica - Óptica Premium">
-    <meta property="og:description" content="Cuidamos tu visión con la mejor tecnología">
-    <title>VisionOptica - Óptica Premium | Guayaquil</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="VisionOptica - Óptica premium">
+    <title>VisionOptica - Óptica Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Optician",
-        "name": "VisionOptica",
-        "description": "Óptica premium con tecnología de vanguardia",
-        "url": "https://vision-optica-premium.vercel.app",
-        "telephone": "+593999999999",
-        "address": {"@type": "PostalAddress", "addressLocality": "Guayaquil", "addressCountry": "EC"},
-        "openingHours": "Mo-Sa 09:00-19:00",
-        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "300"}
-    }
-    </script>
-    
     <style>
-        :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #0f172a;
-            --accent: #22d3ee;
-            --dark: #030712;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-            --glass: rgba(255,255,255,0.06);
-            --glass-border: rgba(255,255,255,0.1);
-        }
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --primary-light: #818cf8; --accent: #22d3ee; --dark: #030712; --light: #f8fafc; --gray: #94a3b8; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--dark);
-            color: var(--light);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Outfit', sans-serif; background: var(--dark); color: var(--light); line-height: 1.7; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
-        
         .c { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
-        .sec { padding: 120px 0; }
+        .sec { padding: 100px 0; }
         
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; cursor: pointer; transition: all 0.3s; border: none; text-decoration: none; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; box-shadow: 0 10px 30px rgba(99,102,241,0.4); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(99,102,241,0.5); }
         
-        /* Glass */
-        .glass-card {
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05));
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-        }
+        .gradient-text { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Button */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 36px;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s;
-            border: none;
-            text-decoration: none;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            box-shadow: 0 10px 40px rgba(99,102,241,0.4);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 60px rgba(99,102,241,0.5);
-        }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; transition: all 0.3s; }
+        .header.scrolled { background: rgba(3,7,18,0.95); backdrop-filter: blur(20px); padding: 10px 0; }
+        .logo { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 800; color: var(--light); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
         
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.4s;
-        }
-        .header.scrolled {
-            background: rgba(3,7,18,0.95);
-            backdrop-filter: blur(20px);
-            padding: 12px 0;
-        }
-        .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; background: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(34,211,238,0.1) 0%, transparent 40%), var(--dark); position: relative; }
+        .hero-content { position: relative; z-index: 2; max-width: 520px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.3); padding: 10px 18px; border-radius: 50px; color: var(--primary-light); font-size: 12px; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(38px, 7vw, 65px); line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 17px; color: var(--gray); margin-bottom: 35px; }
+        .hero-image { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 45%; max-width: 450px; z-index: 2; }
         
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 20%, rgba(34,211,238,0.1) 0%, transparent 40%),
-                        var(--dark);
-        }
-        .hero-content { position: relative; z-index: 2; max-width: 500px; }
-        .hero-image { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 45%; max-width: 500px; z-index: 2; }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(99,102,241,0.2);
-            border: 1px solid rgba(99,102,241,0.3);
-            padding: 10px 20px;
-            border-radius: 50px;
-            color: var(--primary-light);
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-        .hero h1 {
-            font-size: clamp(42px, 7vw, 75px);
-            line-height: 1.1;
-            margin-bottom: 25px;
-        }
-        .hero p {
-            font-size: 18px;
-            color: var(--gray);
-            margin-bottom: 40px;
-            max-width: 550px;
-        }
+        .section-title { font-size: clamp(30px, 5vw, 45px); margin-bottom: 12px; }
+        .section-subtitle { color: var(--gray); font-size: 16px; margin-bottom: 45px; }
         
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            padding: 40px 30px;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform: scaleX(0);
-            transition: transform 0.4s;
-        }
-        .service-card:hover::before { transform: scaleX(1); }
-        .service-card:hover {
-            transform: translateY(-8px);
-            background: linear-gradient(180deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05));
-        }
-        .service-icon {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(34,211,238,0.15));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: var(--primary-light);
-            margin-bottom: 25px;
-        }
-        .service-card h3 {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-        .service-card p {
-            color: var(--gray);
-            font-size: 15px;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-card { padding: 30px; background: linear-gradient(180deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05)); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; transition: all 0.4s; }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--primary); }
+        .service-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 14px; margin-bottom: 20px; }
+        .service-icon { width: 55px; height: 55px; background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(34,211,238,0.15)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--primary-light); margin-bottom: 18px; }
+        .service-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .service-card p { color: var(--gray); font-size: 14px; }
         
-        /* Brands */
-        .brands {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            padding: 40px 0;
-        }
-        .brand-item {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--gray);
-            opacity: 0.6;
-            transition: all 0.3s;
-        }
+        .brands-grid { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; padding: 40px 0; }
+        .brand-item { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--gray); opacity: 0.6; transition: 0.3s; }
         .brand-item:hover { opacity: 1; color: var(--primary-light); }
         
-        /* CTA */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-dark), #3730a3);
-        }
+        .cta-section { background: linear-gradient(135deg, var(--primary-dark), #3730a3); padding: 80px 0; text-align: center; }
         
-        /* Footer */
-        .footer {
-            background: #01050e;
-            padding: 80px 0 30px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 50px;
-        }
-        .footer-brand p {
-            color: var(--gray);
-            margin: 20px 0;
-        }
-        .social-links { display: flex; gap: 12px; }
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            transition: all 0.3s;
-        }
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        .footer-title {
-            color: var(--light);
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
+        .footer { background: #01050e; padding: 60px 0 25px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-brand p { color: var(--gray); margin: 15px 0; font-size: 14px; }
+        .social-links { display: flex; gap: 10px; }
+        .social-link { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--light); transition: all 0.3s; }
+        .social-link:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-title { font-size: 16px; margin-bottom: 20px; }
         .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: var(--gray); text-decoration: none; font-size: 14px; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 30px;
-            text-align: center;
-            color: var(--gray);
-            font-size: 14px;
-        }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; color: var(--gray); font-size: 13px; margin-top: 40px; }
         
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
+        .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
         
-        @media(max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .brands { gap: 30px; } }
+        @media(max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .hero-image { display: none; } .hero-content { max-width: 100%; } }
         @media(max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -312,14 +76,10 @@
     <header class="header" id="header">
         <div class="c">
             <div style="display:flex;justify-content:space-between;align-items:center;">
-                <a href="#" class="logo">
-                    <div class="logo-icon"><i class="fas fa-eye"></i></div>
-                    VISION<span class="gradient-text">OPTICA</span>
-                </a>
-                <nav style="display:flex;gap:30px;align-items:center;">
+                <a href="#" class="logo"><div class="logo-icon"><i class="fas fa-eye"></i></div>VISION<span class="gradient-text">OPTICA</span></a>
+                <nav style="display:flex;gap:25px;align-items:center;">
                     <a href="#servicios" style="color:var(--light);text-decoration:none;font-size:14px;font-weight:500;">Servicios</a>
-                    <a href="#marcas" style="color:var(--light);text-decoration:none;font-size:14px;font-weight:500;">Marcas</a>
-                    <a href="#contacto" class="btn btn-primary" style="padding:12px 24px;">Cita</a>
+                    <a href="#contacto" class="btn btn-primary" style="padding:10px 24px;">Cita</a>
                 </nav>
             </div>
         </div>
@@ -328,14 +88,12 @@
     <section class="hero">
         <div class="c">
             <div class="hero-content">
-                <div class="hero-badge fade-up">
-                    <i class="fas fa-shield-alt"></i> Tecnología de Punta
-                </div>
+                <div class="hero-badge fade-up"><i class="fas fa-shield-alt"></i> Tecnología de Punta</div>
                 <h1 class="fade-up">Tu Visión,<br><span class="gradient-text">Nuestra Prioridad</span></h1>
-                <p class="fade-up">Cuidamos tus ojos con la mejor tecnología y los profesionales más capacitados.</p>
-                <div class="fade-up" style="display:flex;gap:20px;flex-wrap:wrap;">
-                    <a href="#contacto" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agendar Examen</a>
-                    <a href="#servicios" class="btn" style="border:1px solid var(--glass-border);color:var(--light);">Ver Servicios</a>
+                <p class="fade-up">Cuidamos tus ojos con la mejor tecnología.</p>
+                <div class="fade-up" style="display:flex;gap:15px;flex-wrap:wrap;">
+                    <a href="#contacto" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agendar</a>
+                    <a href="#servicios" class="btn" style="border:1px solid rgba(255,255,255,0.2);color:var(--light);">Servicios</a>
                 </div>
             </div>
             <div class="hero-image fade-up">
@@ -346,43 +104,43 @@
 
     <section class="sec" id="servicios">
         <div class="c">
-            <div class="tc" style="margin-bottom:60px;">
-                <h2 class="fade-up" style="font-size:clamp(36px,5vw,52px);margin-bottom:15px;">Nuestros Servicios</h2>
-                <p class="fade-up" style="color:var(--gray);font-size:18px;">Todo lo que necesitas para tu salud visual</p>
+            <div class="tc" style="margin-bottom:50px;">
+                <h2 class="section-title fade-up">Nuestros Servicios</h2>
+                <p class="section-subtitle fade-up">Todo para tu salud visual</p>
             </div>
             <div class="services-grid">
-                <div class="glass-card service-card fade-up">
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400" alt="Exam" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
+                <div class="service-card fade-up">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400" alt="Examen">
                     <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>Exámenes Visuales</h3>
                     <p>Evaluación completa con tecnología avanzada.</p>
                 </div>
-                <div class="glass-card service-card fade-up" style="animation-delay:0.1s">
-                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400" alt="Lentes" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
+                <div class="service-card fade-up" style="animation-delay:0.1s">
+                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400" alt="Lentes">
                     <div class="service-icon"><i class="fas fa-glasses"></i></div>
                     <h3>Lentes Premium</h3>
                     <p>Marcas exclusivas de lentes.</p>
                 </div>
-                <div class="glass-card service-card fade-up" style="animation-delay:0.2s">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400" alt="Contacto" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
+                <div class="service-card fade-up" style="animation-delay:0.2s">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400" alt="Contacto">
                     <div class="service-icon"><i class="fas fa-contact-book"></i></div>
                     <h3>Lentes de Contacto</h3>
                     <p>Adaptación y venta de lentillas.</p>
                 </div>
-                <div class="glass-card service-card fade-up" style="animation-delay:0.3s">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Doctor" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
+                <div class="service-card fade-up" style="animation-delay:0.3s">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Doctor">
                     <div class="service-icon"><i class="fas fa-user-md"></i></div>
                     <h3>Asesoría Profesional</h3>
                     <p>Optometrists certificados.</p>
                 </div>
-                <div class="glass-card service-card fade-up" style="animation-delay:0.4s">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Reparación" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
+                <div class="service-card fade-up" style="animation-delay:0.4s">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Reparacion">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h3>Reparación</h3>
                     <p>Ajustes y reparaciones.</p>
                 </div>
-                <div class="glass-card service-card fade-up" style="animation-delay:0.5s">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Delivery" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
+                <div class="service-card fade-up" style="animation-delay:0.5s">
+                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400" alt="Delivery">
                     <div class="service-icon"><i class="fas fa-truck"></i></div>
                     <h3>Delivery</h3>
                     <p>Entrega a domicilio sin costo.</p>
@@ -393,10 +151,10 @@
 
     <section class="sec" style="background:rgba(99,102,241,0.05);">
         <div class="c">
-            <div class="tc" style="margin-bottom:40px;">
-                <h2 class="fade-up" style="font-size:36px;">Marcas Exclusivas</h2>
+            <div class="tc" style="margin-bottom:30px;">
+                <h2 class="fade-up" style="font-size:32px;">Marcas Exclusivas</h2>
             </div>
-            <div class="brands fade-up">
+            <div class="brands-grid fade-up">
                 <span class="brand-item">RAY-BAN</span>
                 <span class="brand-item">OAKLEY</span>
                 <span class="brand-item">GUCCI</span>
@@ -408,9 +166,9 @@
 
     <section class="cta-section" id="contacto">
         <div class="c">
-            <div class="tc" style="position:relative;z-index:2;">
-                <h2 class="fade-up" style="font-size:48px;color:white;margin-bottom:20px;">¿Listo para ver<br><span class="gradient-text">el mundo claro?</span></h2>
-                <p class="fade-up" style="font-size:18px;color:rgba(255,255,255,0.8);margin-bottom:35px;">Agenda tu examen visual gratuito hoy</p>
+            <div class="tc">
+                <h2 class="fade-up" style="font-size:42px;margin-bottom:15px;">¿Listo para ver<br><span class="gradient-text">claro?</span></h2>
+                <p class="fade-up" style="font-size:17px;opacity:0.9;margin-bottom:30px;">Agenda tu examen gratuito</p>
                 <a href="#" class="btn btn-primary fade-up" style="background:white;color:var(--primary);"><i class="fas fa-calendar-check"></i> Agendar Cita</a>
             </div>
         </div>
@@ -420,42 +178,17 @@
         <div class="c">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo" style="margin-bottom:15px;">
-                        <div class="logo-icon"><i class="fas fa-eye"></i></div>
-                        VISION<span class="gradient-text">OPTICA</span>
-                    </a>
-                    <p>Tu salud visual es nuestra prioridad. Confía en los expertos.</p>
+                    <a href="#" class="logo"><div class="logo-icon"><i class="fas fa-eye"></i></div>VISION<span class="gradient-text">OPTICA</span></a>
+                    <p>Tu salud visual es nuestra prioridad.</p>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div>
-                    <h4 class="footer-title">Servicios</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Exámenes</a></li>
-                        <li><a href="#">Lentes</a></li>
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">Reparaciones</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Horario</h4>
-                    <ul class="footer-links">
-                        <li>Lun - Vie: 09:00 - 19:00</li>
-                        <li>Sábados: 09:00 - 17:00</li>
-                        <li>Domingos: Cerrado</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Contacto</h4>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i>Av. Visual, Guayaquil</li>
-                        <li><i class="fas fa-phone" style="margin-right:8px;"></i>+593 99 999 9999</li>
-                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i>hola@visionoptica.com</li>
-                    </ul>
-                </div>
+                <div><h4 class="footer-title">Servicios</h4><ul class="footer-links"><li><a href="#">Exámenes</a></li><li><a href="#">Lentes</a></li><li><a href="#">Contacto</a></li></ul></div>
+                <div><h4 class="footer-title">Horario</h4><ul class="footer-links"><li>Lun - Vie: 09:00 - 19:00</li><li>Sábados: 09:00 - 17:00</li></ul></div>
+                <div><h4 class="footer-title">Contacto</h4><ul class="footer-links"><li><i class="fas fa-map-marker-alt"></i> Guayaquil</li><li><i class="fas fa-phone"></i> +593 99 999 9999</li></ul></div>
             </div>
             <div class="footer-bottom">© 2026 VisionOptica. Todos los derechos reservados.</div>
         </div>
@@ -464,10 +197,8 @@
     <script>
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
-
         const observer = new IntersectionObserver((e) => e.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
         gsap.registerPlugin(ScrollTrigger);
         gsap.from('.hero-content > *', { duration: 1, y: 50, opacity: 0, stagger: 0.2, ease: 'power3.out' });
     </script>
