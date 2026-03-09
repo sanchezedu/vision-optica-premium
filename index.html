@@ -145,7 +145,8 @@
                         radial-gradient(ellipse at 80% 20%, rgba(34,211,238,0.1) 0%, transparent 40%),
                         var(--dark);
         }
-        .hero-content { position: relative; z-index: 2; max-width: 700px; }
+        .hero-content { position: relative; z-index: 2; max-width: 500px; }
+        .hero-image { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 45%; max-width: 500px; z-index: 2; }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -331,11 +332,14 @@
                     <i class="fas fa-shield-alt"></i> Tecnología de Punta
                 </div>
                 <h1 class="fade-up">Tu Visión,<br><span class="gradient-text">Nuestra Prioridad</span></h1>
-                <p class="fade-up">Cuidamos tus ojos con la mejor tecnología y los profesionales más capacitados. lenses de última generación.</p>
+                <p class="fade-up">Cuidamos tus ojos con la mejor tecnología y los profesionales más capacitados.</p>
                 <div class="fade-up" style="display:flex;gap:20px;flex-wrap:wrap;">
                     <a href="#contacto" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agendar Examen</a>
                     <a href="#servicios" class="btn" style="border:1px solid var(--glass-border);color:var(--light);">Ver Servicios</a>
                 </div>
+            </div>
+            <div class="hero-image fade-up">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600" alt="Eye Exam" style="width:100%;border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,0.4);">
             </div>
         </div>
     </section>
@@ -348,34 +352,40 @@
             </div>
             <div class="services-grid">
                 <div class="glass-card service-card fade-up">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400" alt="Exam" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
                     <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>Exámenes Visuales</h3>
-                    <p>Evaluación completa con tecnología avanzada de última generación.</p>
+                    <p>Evaluación completa con tecnología avanzada.</p>
                 </div>
                 <div class="glass-card service-card fade-up" style="animation-delay:0.1s">
+                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400" alt="Lentes" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
                     <div class="service-icon"><i class="fas fa-glasses"></i></div>
                     <h3>Lentes Premium</h3>
-                    <p>Amplia variedad de lentes oftálmicos y de sol de marcas exclusivas.</p>
+                    <p>Marcas exclusivas de lentes.</p>
                 </div>
                 <div class="glass-card service-card fade-up" style="animation-delay:0.2s">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400" alt="Contacto" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
                     <div class="service-icon"><i class="fas fa-contact-book"></i></div>
                     <h3>Lentes de Contacto</h3>
-                    <p>Adaptación y venta de lentillas blandas y rígidas.</p>
+                    <p>Adaptación y venta de lentillas.</p>
                 </div>
                 <div class="glass-card service-card fade-up" style="animation-delay:0.3s">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Doctor" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
                     <div class="service-icon"><i class="fas fa-user-md"></i></div>
                     <h3>Asesoría Profesional</h3>
-                    <p>Optometrists certificados para guiarte en tu elección perfecta.</p>
+                    <p>Optometrists certificados.</p>
                 </div>
                 <div class="glass-card service-card fade-up" style="animation-delay:0.4s">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Reparación" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h3>Reparación</h3>
-                    <p>Ajustes y reparaciones de tus lentes en el momento.</p>
+                    <p>Ajustes y reparaciones.</p>
                 </div>
                 <div class="glass-card service-card fade-up" style="animation-delay:0.5s">
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Delivery" style="width:100%;height:180px;object-fit:cover;border-radius:16px;margin-bottom:20px;">
                     <div class="service-icon"><i class="fas fa-truck"></i></div>
                     <h3>Delivery</h3>
-                    <p>Entrega a domicilio de tus lentes terminados sin costo.</p>
+                    <p>Entrega a domicilio sin costo.</p>
                 </div>
             </div>
         </div>
