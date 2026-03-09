@@ -1,41 +1,465 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="VisionOptica - Óptica de precisión. Exámenes visuales, lentes de alta gama, marcas premium. Tu visión, nuestra pasión." />
-    <meta name="keywords" content="óptica, lentes, examen visual, gafas, salud visual, optometría, lentes de contacto, Ecuador" />
-    <meta name="author" content="VisionOptica" />
-    <meta name="theme-color" content="#6366f1">
-    <meta property="og:title" content="VisionOptica - Óptica de Precisión" />
-    <meta property="og:description" content="Tu visión, nuestra pasión" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_EC">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://vision-optica-premium.vercel.app">
-    <title>VisionOptica - Óptica de Precisión | Ecuador</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VisionOptica - Óptica premium en Guayaquil. Lentes, exámenes visuales, marcas exclusivas. Cuidamos tu visión.">
+    <meta name="keywords" content="óptica, lentes, examenes visuales, Guayaquil, oftalmología">
+    <meta name="author" content="VisionOptica">
+    <meta property="og:title" content="VisionOptica - Óptica Premium">
+    <meta property="og:description" content="Cuidamos tu visión con la mejor tecnología">
+    <title>VisionOptica - Óptica Premium | Guayaquil</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
+        "@type": "Optician",
         "name": "VisionOptica",
-        "description": "Óptica de precisión con exámenes visuales y lentes premium",
+        "description": "Óptica premium con tecnología de vanguardia",
         "url": "https://vision-optica-premium.vercel.app",
         "telephone": "+593999999999",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Guayaquil",
-            "addressCountry": "EC"
-        },
-        "openingHours": "Mo-Fr 09:00-19:00",
-        "priceRange": "$$",
-        "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600"
+        "address": {"@type": "PostalAddress", "addressLocality": "Guayaquil", "addressCountry": "EC"},
+        "openingHours": "Mo-Sa 09:00-19:00",
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "300"}
     }
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #0f172a;
+            --accent: #22d3ee;
+            --dark: #030712;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --glass: rgba(255,255,255,0.06);
+            --glass-border: rgba(255,255,255,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+        
+        .c { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
+        .sec { padding: 120px 0; }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glass */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+        }
+        
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s;
+            border: none;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 10px 40px rgba(99,102,241,0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(99,102,241,0.5);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s;
+        }
+        .header.scrolled {
+            background: rgba(3,7,18,0.95);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+        }
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(ellipse at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 20%, rgba(34,211,238,0.1) 0%, transparent 40%),
+                        var(--dark);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 700px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(99,102,241,0.2);
+            border: 1px solid rgba(99,102,241,0.3);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: var(--primary-light);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 550px;
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            padding: 40px 30px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: linear-gradient(180deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05));
+        }
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(34,211,238,0.15));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-light);
+            margin-bottom: 25px;
+        }
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+        
+        /* Brands */
+        .brands {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+        .brand-item {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray);
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+        .brand-item:hover { opacity: 1; color: var(--primary-light); }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark), #3730a3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #01050e;
+            padding: 80px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+        .footer-brand p {
+            color: var(--gray);
+            margin: 20px 0;
+        }
+        .social-links { display: flex; gap: 12px; }
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        .footer-title {
+            color: var(--light);
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        
+        @media(max-width: 992px) { .footer-grid { grid-template-columns: 1fr 1fr; } .brands { gap: 30px; } }
+        @media(max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="c">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i class="fas fa-eye"></i></div>
+                    VISION<span class="gradient-text">OPTICA</span>
+                </a>
+                <nav style="display:flex;gap:30px;align-items:center;">
+                    <a href="#servicios" style="color:var(--light);text-decoration:none;font-size:14px;font-weight:500;">Servicios</a>
+                    <a href="#marcas" style="color:var(--light);text-decoration:none;font-size:14px;font-weight:500;">Marcas</a>
+                    <a href="#contacto" class="btn btn-primary" style="padding:12px 24px;">Cita</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="c">
+            <div class="hero-content">
+                <div class="hero-badge fade-up">
+                    <i class="fas fa-shield-alt"></i> Tecnología de Punta
+                </div>
+                <h1 class="fade-up">Tu Visión,<br><span class="gradient-text">Nuestra Prioridad</span></h1>
+                <p class="fade-up">Cuidamos tus ojos con la mejor tecnología y los profesionales más capacitados. lenses de última generación.</p>
+                <div class="fade-up" style="display:flex;gap:20px;flex-wrap:wrap;">
+                    <a href="#contacto" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Agendar Examen</a>
+                    <a href="#servicios" class="btn" style="border:1px solid var(--glass-border);color:var(--light);">Ver Servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" id="servicios">
+        <div class="c">
+            <div class="tc" style="margin-bottom:60px;">
+                <h2 class="fade-up" style="font-size:clamp(36px,5vw,52px);margin-bottom:15px;">Nuestros Servicios</h2>
+                <p class="fade-up" style="color:var(--gray);font-size:18px;">Todo lo que necesitas para tu salud visual</p>
+            </div>
+            <div class="services-grid">
+                <div class="glass-card service-card fade-up">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>Exámenes Visuales</h3>
+                    <p>Evaluación completa con tecnología avanzada de última generación.</p>
+                </div>
+                <div class="glass-card service-card fade-up" style="animation-delay:0.1s">
+                    <div class="service-icon"><i class="fas fa-glasses"></i></div>
+                    <h3>Lentes Premium</h3>
+                    <p>Amplia variedad de lentes oftálmicos y de sol de marcas exclusivas.</p>
+                </div>
+                <div class="glass-card service-card fade-up" style="animation-delay:0.2s">
+                    <div class="service-icon"><i class="fas fa-contact-book"></i></div>
+                    <h3>Lentes de Contacto</h0>
+                    <p>Adaptación y venta de lentillas blandas y rígidas.</p>
+                </div>
+                <div class="glass-card service-card fade-up" style="animation-delay:0.3s">
+                    <div class="service-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Asesoría Profesional</h3>
+                    <p>Optometrists certificados para guiarte en tu elección perfecta.</p>
+                </div>
+                <div class="glass-card service-card fade-up" style="animation-delay:0.4s">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Reparación</h3>
+                    <p>Ajustes y reparaciones de tus lentes en el momento.</p>
+                </div>
+                <div class="glass-card service-card fade-up" style="animation-delay:0.5s">
+                    <div class="service-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Delivery</h3>
+                    <p>Entrega a domicilio de tus lentes terminados sin costo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" style="background:rgba(99,102,241,0.05);">
+        <div class="c">
+            <div class="tc" style="margin-bottom:40px;">
+                <h2 class="fade-up" style="font-size:36px;">Marcas Exclusivas</h2>
+            </div>
+            <div class="brands fade-up">
+                <span class="brand-item">RAY-BAN</span>
+                <span class="brand-item">OAKLEY</span>
+                <span class="brand-item">GUCCI</span>
+                <span class="brand-item">PRADA</span>
+                <span class="brand-item">VERSACE</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contacto">
+        <div class="c">
+            <div class="tc" style="position:relative;z-index:2;">
+                <h2 class="fade-up" style="font-size:48px;color:white;margin-bottom:20px;">¿Listo para ver<br><span class="gradient-text">el mundo claro?</span></h2>
+                <p class="fade-up" style="font-size:18px;color:rgba(255,255,255,0.8);margin-bottom:35px;">Agenda tu examen visual gratuito hoy</p>
+                <a href="#" class="btn btn-primary fade-up" style="background:white;color:var(--primary);"><i class="fas fa-calendar-check"></i> Agendar Cita</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="c">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="margin-bottom:15px;">
+                        <div class="logo-icon"><i class="fas fa-eye"></i></div>
+                        VISION<span class="gradient-text">OPTICA</span>
+                    </a>
+                    <p>Tu salud visual es nuestra prioridad. Confía en los expertos.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Exámenes</a></li>
+                        <li><a href="#">Lentes</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Reparaciones</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Horario</h4>
+                    <ul class="footer-links">
+                        <li>Lun - Vie: 09:00 - 19:00</li>
+                        <li>Sábados: 09:00 - 17:00</li>
+                        <li>Domingos: Cerrado</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i>Av. Visual, Guayaquil</li>
+                        <li><i class="fas fa-phone" style="margin-right:8px;"></i>+593 99 999 9999</li>
+                        <li><i class="fas fa-envelope" style="margin-right:8px;"></i>hola@visionoptica.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 VisionOptica. Todos los derechos reservados.</div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
+
+        const observer = new IntersectionObserver((e) => e.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.hero-content > *', { duration: 1, y: 50, opacity: 0, stagger: 0.2, ease: 'power3.out' });
+    </script>
+</body>
 </html>
