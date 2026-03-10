@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vision-optica-premium.vercel.app/sitemap.xml

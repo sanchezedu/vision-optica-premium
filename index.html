@@ -3,7 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisionOptica - Óptica Premium</title>
+    <title>VisionOptica - Óptica Premium | Lentes y Exámenes Visuales</title>
+    <meta name="description" content="VisionOptica - Óptica premium en Guayaquil. Exámenes visuales, lentes de marca (Ray-Ban, Oakley, Gucci), lentes de contacto y más. ¡Agenda tu cita gratuita!">
+    <meta name="keywords" content="óptica, lentes, examenes visuales, Guayaquil, Ray-Ban, Oakley, lentes de contacto, salud visual, optometría">
+    <meta name="author" content="VisionOptica">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="VisionOptica - Óptica Premium">
+    <meta property="og:description" content="Tu Visión, Nuestra Prioridad. Cuidamos tus ojos con la mejor tecnología.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vision-optica-premium.vercel.app">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200">
+    <meta property="og:site_name" content="VisionOptica">
+    <meta property="og:locale" content="es_EC">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VisionOptica - Óptica Premium">
+    <meta name="twitter:description" content="Tu Visión, Nuestra Prioridad. Exámenes y lentes premium.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "VisionOptica",
+        "description": "Óptica premium con exámenes visuales y lentes de marca",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Guayaquil",
+            "addressCountry": "EC"
+        },
+        "telephone": "+593999999999",
+        "openingHours": "Mo-Fr 09:00-19:00, Sa 09:00-17:00",
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200"
+    }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -61,6 +99,25 @@
             .hero .container { flex-direction: column; text-align: center; }
             .hero-image { display: none; }
         }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float i { color: white; font-size: 28px; }
     </style>
 </head>
 <body>
@@ -82,7 +139,7 @@
                 <a href="#contacto" class="btn">Agendar</a>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600" alt="Eye Exam">
+                <img loading="lazy" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600" alt="Eye Exam">
             </div>
         </div>
     </section>
@@ -93,37 +150,37 @@
             <p>Todo para tu salud visual</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400" alt="Examen">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400" alt="Examen">
                     <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>Exámenes Visuales</h3>
                     <p>Evaluación completa con tecnología avanzada.</p>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400" alt="Lentes">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400" alt="Lentes">
                     <div class="service-icon"><i class="fas fa-glasses"></i></div>
                     <h3>Lentes Premium</h3>
                     <p>Marcas exclusivas de lentes.</p>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400" alt="Contacto">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400" alt="Contacto">
                     <div class="service-icon"><i class="fas fa-contact-book"></i></div>
                     <h3>Lentes de Contacto</h3>
                     <p>Adaptación y venta de lentillas.</p>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Doctor">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400" alt="Doctor">
                     <div class="service-icon"><i class="fas fa-user-md"></i></div>
                     <h3>Asesoría Profesional</h3>
                     <p>Optometrists certificados.</p>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Reparacion">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Reparacion">
                     <div class="service-icon"><i class="fas fa-tools"></i></div>
                     <h3>Reparación</h3>
                     <p>Ajustes y reparaciones.</p>
                 </div>
                 <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400" alt="Delivery">
+                    <img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400" alt="Delivery">
                     <div class="service-icon"><i class="fas fa-truck"></i></div>
                     <h3>Delivery</h3>
                     <p>Entrega a domicilio sin costo.</p>
@@ -185,5 +242,10 @@
             <div class="footer-bottom">© 2026 VisionOptica. Todos los derechos reservados.</div>
         </div>
     </footer>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/593999999999" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>
